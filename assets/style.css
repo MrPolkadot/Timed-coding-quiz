@@ -11,29 +11,59 @@
 :root {
     --light-mode-page-background-color: rgb(254, 254, 254);
     --dark-mode-page-background-color: rgb(12, 28, 62);
-    --start-button: rgb(6, 75, 6);
+    --start-button: rgb(2, 230, 2);
     --retry-button: rgb(1, 109, 145);
     --score-button: rgb(2, 54, 103);
-    --question-card-light-color: rgb(240, 231, 231); 
+    --options-button-color: #5585b5;
+    --question-card-light-color: rgb(189, 221, 249); 
+    --heading-bg-color: #79c2d0;
 }
 
 h1 {
-    background-color: rgb(177, 165, 165);
+    background-color: var(--heading-bg-color);
     color: rgb(0, 0, 0);
     width: 100%;
+    padding-top: 50px;
+    padding-bottom: 20px;
     text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom: solid 3px black;
 }
 
+h2 {
+    background-color: var(--heading-bg-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+
 p {
     background-color: var(--question-card-light-color);
 }
 
+button {
+    border-radius: 5px;
+    padding: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 #starting-point {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     padding: 20px;
     z-index: 12;
+}
+
+#start-quiz-button {
+    background-color: var(--start-button);
+    border-radius: 8px;
+    border: outset 3px rgb(125, 226, 125);
+    padding: 20px;
 }
 
 /* This styles every section the same way */
@@ -41,12 +71,92 @@ p {
     height: 500px;
     width: 50%;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
     margin: 200px 25%;
     background-color: var(--question-card-light-color);
     border: solid 2px rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgb(175, 168, 168);
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background-color: var(--question-card-light-color);
+}
+
+#options button {
+    height: 50px;
+    background-color: var(--options-button-color);
+    color: #d2faff;
+}
+
+#options button:hover {
+    background-color: #79c2d0;
+}
+
+
+
+#quiz-block {
+
+}
+
+#end-point {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#info-form {
+    display: flex;
+    justify-content: center;
+    background-color: var(--question-card-light-color);
+}
+
+#submit {
+    background-color: var(--options-button-color);
+    color: #d2faff;
+}
+
+#initials-input {
+    border-radius: 5px;
+}
+
+#end-buttons {
+    background-color: var(--question-card-light-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-left: 25%;
+}
+
+#end-buttons button {
+    background-color: var(--options-button-color);
+    color: #d2faff;
+}
+ 
+#end-buttons button:hover {
+    background-color: #79c2d0
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: solid 2px #dddd;
+    text-align: center;
+}
+
+#score-section button {
+    background-color: var(--options-button-color);
+    color: #d2faff;
 }
