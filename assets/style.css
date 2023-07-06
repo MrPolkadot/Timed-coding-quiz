@@ -7,6 +7,12 @@
     font-size: 30px;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /* Variables to add shortcut to our colors */
 :root {
     --light-mode-page-background-color: rgb(254, 254, 254);
@@ -15,7 +21,7 @@
     --retry-button: rgb(1, 109, 145);
     --score-button: rgb(2, 54, 103);
     --options-button-color: #5585b5;
-    --question-card-light-color: rgb(189, 221, 249); 
+    --question-card-light-color: rgb(189, 221, 249);
     --heading-bg-color: #79c2d0;
 }
 
@@ -50,13 +56,22 @@ button:hover {
     cursor: pointer;
 }
 
+#timer-bar {
+    display: flex;
+}
+
+#quiz-block {
+    position: relative;
+}
+
 #starting-point {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    z-index: 12;
+    visibility: visible;
 }
 
 #start-quiz-button {
@@ -65,6 +80,57 @@ button:hover {
     border: outset 3px rgb(125, 226, 125);
     padding: 20px;
 }
+
+#question-one {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-two {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-three {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-four {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-five {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-six {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-seven {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-eight {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-nine {
+    position: absolute;
+    visibility: hidden;
+}
+
+#question-ten {
+    position: absolute;
+    visibility: hidden;
+}
+
 
 /* This styles every section the same way */
 .section-item {
@@ -81,6 +147,8 @@ button:hover {
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgb(175, 168, 168);
 }
+
+
 
 #options {
     display: flex;
@@ -101,14 +169,10 @@ button:hover {
     background-color: #79c2d0;
 }
 
-
-
-#quiz-block {
-
-}
-
 #end-point {
-    display: flex;
+    display: hidden;
+    position: absolute;
+    visibility: hidden;
     flex-direction: column;
     justify-content: space-evenly;
 }
@@ -141,7 +205,7 @@ button:hover {
     background-color: var(--options-button-color);
     color: #d2faff;
 }
- 
+
 #end-buttons button:hover {
     background-color: #79c2d0
 }
@@ -151,12 +215,22 @@ table {
     border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
     border: solid 2px #dddd;
     text-align: center;
+}
+
+#score-section {
+    position: absolute;
+    visibility: hidden;
 }
 
 #score-section button {
     background-color: var(--options-button-color);
     color: #d2faff;
+}
+
+footer {
+    margin-top: auto;
 }

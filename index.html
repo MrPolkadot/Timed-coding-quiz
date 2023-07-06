@@ -6,25 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Roboto+Mono:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Roboto+Mono:wght@200;400&display=swap"
+        rel="stylesheet">
     <title>Timed Code Quiz</title>
 </head>
 
 <!-- Try to make each section a flexbox and use the DOM to manipulate each section into changing after answering the question. Try using the z-index property on css to change them on js. -->
 
 <body>
-    <!-- This will be the starting point of the page -->
-    <header id="starting-point" class="section-item">
-        <h1>CODE QUIZ</h1>
-        <p>Take this timed quiz to challenge your coding knowledge. Each incorrect answer will reduce the time left.
-            When all questions are answered or the timer reaches zero, the game will end.</p>
-        <p>Good Luck!</p>
-        <button id="start-quiz-button">START QUIZ</button>
+    <header>
+        <nav id="timer-bar">
+            <p>Time:</p><span id="timer"></span>
+        </nav>
     </header>
+
+
 
     <!-- List of questions. Each section will change to the next on the page. -->
     <main id="quiz-block">
+        <!-- Starting point will always be the first thing on the page. -->
+        <section id="starting-point" class="section-item">
+            <h1>CODE QUIZ</h1>
+            <p>Take this timed quiz to challenge your coding knowledge. Each incorrect answer will reduce the time left.
+                When all questions are answered or the timer reaches zero, the game will end.</p>
+            <p>Good Luck!</p>
+            <button id="start-quiz-button">START QUIZ</button>
+        </section>
         <section id="question-one" class="section-item">
             <h2>QUESTION 1 -</h2>
             <!-- Check if you can randomize the buttons(answers) in js. Perhaps make answer one the correct answer and shuffle each time. 
@@ -133,12 +141,12 @@
             </div>
         </section>
 
-        <!-- Maybe append element into table once new user id sumbitted? -->
+        <!-- Maybe append element into table once new user id submitted? -->
         <section id="score-section" class="section-item">
             <table class="score-table">
                 <tr>
-                    <th>Name</th>  
-                    <th>Score</th>                  
+                    <th>Name</th>
+                    <th>Score</th>
                 </tr>
                 <tr id="new-user">
                     <td>SM</td>
