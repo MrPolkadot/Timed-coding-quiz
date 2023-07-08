@@ -149,11 +149,10 @@ button:hover {
 }
 
 
-
 #options {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 30px;
     background-color: var(--question-card-light-color);
@@ -163,6 +162,7 @@ button:hover {
     height: 50px;
     background-color: var(--options-button-color);
     color: #d2faff;
+    padding: 10px;
 }
 
 #options button:hover {
@@ -170,7 +170,6 @@ button:hover {
 }
 
 #end-point {
-    display: hidden;
     position: absolute;
     visibility: hidden;
     flex-direction: column;
