@@ -64,6 +64,14 @@ button:hover {
     position: relative;
 }
 
+#text-box {
+    position: absolute;
+    background-color: var(--question-card-light-color);
+    margin-top: 150px;
+    margin-left: 25%;
+}
+
+
 #starting-point {
     position: absolute;
     display: flex;
@@ -71,7 +79,7 @@ button:hover {
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    visibility: visible;
+    z-index: 1;
 }
 
 #start-quiz-button {
@@ -123,12 +131,12 @@ button:hover {
 
 #question-nine {
     position: absolute;
-    visibility: hidden;
+    visibility: hidden; 
 }
 
 #question-ten {
     position: absolute;
-    visibility: hidden;
+    visibility: hidden; 
 }
 
 
@@ -232,4 +240,4 @@ th {
 
 footer {
     margin-top: auto;
-}
+} 
