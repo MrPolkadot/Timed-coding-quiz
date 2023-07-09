@@ -9,45 +9,58 @@ let resultText = document.querySelector("#result-text");
 let rightChoice = document.querySelectorAll("#right");
 let wrongChoice = document.querySelectorAll("#wrong");
 
-// let questionOne = document.querySelector("#question-one");
-// let questionTwo = document.querySelector("#question-two");
-// let questionThree = document.querySelector("#question-three");
-// let questionFour = document.querySelector("#question-five");
-// let questionFive = document.querySelector("#question-six");
-// let questionSix = document.querySelector("#question-seven");
-// let questionSeven = document.querySelector("#question-seven");
-// let questionEight = document.querySelector("#question-eight");
-// let questionNine = document.querySelector("#question-nine");
-// let questionTen = document.querySelector("#question-ten");
-let questions = document.querySelectorAll(`[id^="question"]`);
+let questionOne = document.querySelector("#question-one");
 
-console.log(wrongChoice);
+let questionsArr = [
+    document.querySelector("#question-two"),
+    document.querySelector("#question-three"),
+    document.querySelector("#question-four"),
+    document.querySelector("#question-five"),
+    document.querySelector("#question-six"),
+    document.querySelector("#question-seven"),
+    document.querySelector("#question-eight"),
+    document.querySelector("#question-nine"),
+    document.querySelector("#question-ten"),
+    document.querySelector("#end-point")
+]
+//let questions = document.querySelectorAll(`[id^="question"]`);
+
+
+let wrongAnswer = false;
+let rightAnswer = true;
+let score = 0;
 
 //Will start the quiz and the countdown
 startQuizButton.addEventListener("click", function () {
-    questions[0].style.visibility = "visible";
+    questionOne.style.visibility = "visible";
     startingPoint.style.visibility = "hidden";
     countdown();
 });
 
+
 //Converts these NodeLists into an array
 let rightChoiceArr = Array.from(rightChoice);
 let wrongChoiceArr = Array.from(wrongChoice);
-let questionsArr = Array.from(questions);
-console.log(questions);
+//let questionsArr = Array.from(questions);
+console.log(questionsArr);
+let choices = rightChoiceArr.concat(wrongChoiceArr);
+console.log(choices);
+
 
 
 //Displays message if either right or wrong
 for (let i = 0; i < rightChoiceArr.length; i++) {
     rightChoiceArr[i].addEventListener("click", function() {
-        displayCorrectMessage();
         sectionChange();
+        displayCorrectMessage();
     });
 }
 
 for (let i = 0; i < wrongChoiceArr.length; i++) {
-    wrongChoiceArr[i].addEventListener("click", displayWrongMessage);
-    
+    wrongChoiceArr[i].addEventListener("click", function() {
+        sectionChange();
+        displayWrongMessage();
+    });
 };
 
 //Counts down the timer once quiz is started.
@@ -84,18 +97,22 @@ function displayWrongMessage() {
 
 //Work on this
 function sectionChange() {
-    i = 0;
-    i = i + 1;
-    i = i % questionsArr.length;
-    return questionsArr[i]; 
+    for (let i = 0; i < questionsArr.length; i++) {
+        
+        if (questionsArr[i].style.visibility != "visible") {
+            questionsArr[i].style.visibility = "visible";
+            if (i == questionsArr.length) {
+                questionsArr[0].style.visibility = "visible";
+            } //else {
+                //questionsArr[i + 1].style.visibility = "visible";
+            //}
+        break
+        }
+    }
+}
+
+// function checkStatus(status) {
+//     if (status === (questionsArr.style.visibility = "hidden")) {
     
-    // for (let i = 0; i < questionsArr.length; i++) {
-        // return questionsArr[i];
-     }
-    //     if (rightChoiceArr || wrongChoiceArr) {
-    //         questionsArr[1].style.visibility = "visible";
-    //         console.log(questionsArr[i]);
-    //     }
-    // }
-    
-};
+//     }
+// }
