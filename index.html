@@ -131,8 +131,8 @@
 
         <!-- After quiz is over, it asks for user initials and options to retry or check scores. -->
         <section id="end-point" class="section-item">
-            <h2>Time is up!</h2>
-            <p>Score: <span id="score">0</span></p>
+            <h2>Complete</h2>
+            <p>Score: <span id="score"></span></p>
             <div id="info-form">
                 <p>Enter your initials:</p>
                 <input id="initials-input" placeholder="Enter initials"></input>
@@ -146,12 +146,12 @@
 
         <!-- Maybe append element into table once new user id submitted? -->
         <section id="score-section" class="section-item">
-            <table class="score-table">
+            <table class="score-table" id="new-user">
                 <tr>
                     <th>Name</th>
                     <th>Score</th>
                 </tr>
-                <tr id="new-user">
+                <tr >
                     <td>SM</td>
                     <td>10</td>
                 </tr>

@@ -1,6 +1,5 @@
 console.log("CODE QUIZ");
 
-let seconds;
 let timer = document.querySelector("#timer");
 let startingPoint = document.querySelector("#starting-point");
 let startQuizButton = document.querySelector("#start-quiz-button");
@@ -25,10 +24,9 @@ let questionsArr = [
 ]
 //let questions = document.querySelectorAll(`[id^="question"]`);
 
-
-let wrongAnswer = false;
-let rightAnswer = true;
-let score = 0;
+let score = document.querySelector("#score");
+let finalScore = 0;
+let seconds;
 
 //Will start the quiz and the countdown
 startQuizButton.addEventListener("click", function () {
@@ -41,61 +39,64 @@ startQuizButton.addEventListener("click", function () {
 //Converts these NodeLists into an array
 let rightChoiceArr = Array.from(rightChoice);
 let wrongChoiceArr = Array.from(wrongChoice);
-//let questionsArr = Array.from(questions);
-console.log(questionsArr);
+
 let choices = rightChoiceArr.concat(wrongChoiceArr);
-console.log(choices);
 
-
-
-//Displays message if either right or wrong
-for (let i = 0; i < rightChoiceArr.length; i++) {
-    rightChoiceArr[i].addEventListener("click", function() {
-        sectionChange();
-        displayCorrectMessage();
-    });
-}
-
-for (let i = 0; i < wrongChoiceArr.length; i++) {
-    wrongChoiceArr[i].addEventListener("click", function() {
-        sectionChange();
-        displayWrongMessage();
-    });
-};
 
 //Counts down the timer once quiz is started.
 function countdown() {
-    seconds = 60; //Change it to 60 in the future.
+    seconds = 10; //Change it to 60 in the future.
     let timeInterval = setInterval(function () {
-        //subtract 3 seconds each time wrong is chosen.
-        //if (wrongAnswer) {
-        //seconds = seconds - 3;
-        //}
+        if (seconds <= 0) {
+            questionsArr[9].style.visibility = "visible";
+        }
         if (seconds > 0) {
             timer.textContent = seconds;
             seconds--;
-        } else {
-            timer.textContent = "0";
+        } 
+        else {
+            timer.textContent = "";
             clearInterval(timeInterval);
-            //Enter function here that will stop the game and send you to endpoint section.
         }
     }, 1000);
 };
 
 
+//Displays message if either right or wrong
+    for (let i = 0; i < rightChoiceArr.length; i++) {
+        rightChoiceArr[i].addEventListener("click", function() {
+            sectionChange();
+            displayCorrectMessage();
+        });
+    }
+
+    for (let i = 0; i < wrongChoiceArr.length; i++) {
+        wrongChoiceArr[i].addEventListener("click", function() {
+            sectionChange();
+            displayWrongMessage();
+        });
+    };
+
+
+
 function displayCorrectMessage() {
     if (rightChoiceArr) {
+        finalScore += 10;
+        score.textContent = finalScore;
+        
         resultText.textContent = "Correct";
     }
+    return finalScore;
 };
 
 function displayWrongMessage() {
     if (wrongChoiceArr) {
+        seconds -= 5;
     resultText.textContent = "Wrong";
     }
 };
 
-//Work on this
+//Changes the visibility of each section
 function sectionChange() {
     for (let i = 0; i < questionsArr.length; i++) {
         
@@ -103,16 +104,48 @@ function sectionChange() {
             questionsArr[i].style.visibility = "visible";
             if (i == questionsArr.length) {
                 questionsArr[0].style.visibility = "visible";
-            } //else {
-                //questionsArr[i + 1].style.visibility = "visible";
-            //}
+            }
         break
         }
     }
 }
 
-// function checkStatus(status) {
-//     if (status === (questionsArr.style.visibility = "hidden")) {
+
+//Grabs the elements for the last two sections of the page
+let userInitials = document.querySelector("#initials-input");
+let submit = document.querySelector("#submit");
+let retry = document.querySelector("#retry");
+let scoreBoard = document.querySelector("#score-board");
+let scoreSection = document.querySelector("#score-section");
+let newUserInput = document.querySelector("#new-user");
+
+
+
+
+// localStorage.setItem("user", initialsValue);
+// localStorage.setItem("score", finalScore);
+
+function saveInputValue() {
+localStorage.setItem("score", finalScore);
+localStorage.setItem("user", initialsValue);
+};
+
+
+//when clicked, save initials into localstorage and add them into the table.
+submit.addEventListener("click", function() {
+    let initialsValue = userInitials.value;
+    if (initialsValue) {
+        let tableData = document.createElement("tr");
+        newUserInput.appendChild(tableData);
+    }
     
-//     }
-// }
+    
+    saveInputValue();
+});
+
+
+scoreBoard.addEventListener("click", function() {
+    scoreSection.style.visibility = "visible";
+})
+
+//make function that goes to score-section after clicking check scores
