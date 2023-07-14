@@ -16,7 +16,6 @@ body {
 /* Variables to add shortcut to our colors */
 :root {
     --light-mode-page-background-color: rgb(254, 254, 254);
-    --dark-mode-page-background-color: rgb(12, 28, 62);
     --start-button: rgb(2, 230, 2);
     --retry-button: rgb(1, 109, 145);
     --score-button: rgb(2, 54, 103);

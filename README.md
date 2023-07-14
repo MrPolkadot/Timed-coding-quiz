@@ -9,7 +9,7 @@ This project was useful in making me understand the concepts of DOM manipulation
 
 ## Usage
 
-*enter github page link here*
+**https://mrpolkadot.github.io/Timed-coding-quiz/**
 
 The quiz and timer will start when you click "START QUIZ".
 
