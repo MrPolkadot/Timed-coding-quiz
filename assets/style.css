@@ -67,7 +67,7 @@ button:hover {
 #text-box {
     position: absolute;
     background-color: var(--question-card-light-color);
-    margin-top: 150px;
+    margin-top: 50px;
     margin-left: 25%;
 }
 

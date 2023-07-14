@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +10,6 @@
         rel="stylesheet">
     <title>Timed Code Quiz</title>
 </head>
-
-<!-- Try to make each section a flexbox and use the DOM to manipulate each section into changing after answering the question. Try using the z-index property on css to change them on js. -->
 
 <body>
     <header>
@@ -130,47 +127,27 @@
         </section>
 
         <!-- After quiz is over, it asks for user initials and options to retry or check scores. -->
-        <section id="end-point" class="section-item">
+        <form id="end-point" class="section-item">
             <h2>Complete</h2>
             <p>Score: <span id="score"></span></p>
             <div id="info-form">
-                <p>Enter your initials:</p>
-                <input id="initials-input" placeholder="Enter initials"></input>
-                <button id="submit">SUBMIT</button>
+                <label for="initials-input">Enter your initials:</label>
+                <input type="text" id="initials">
+                <button id="submit-initials" value="Submit">Submit</button>
             </div>
             <div id="end-buttons">
                 <button id="retry">Retry</button>
                 <button id="score-board">Check scores</button>
             </div>
-        </section>
+        </form>
 
-        <!-- Maybe append element into table once new user id submitted? -->
+        <!-- Append element with input value into table once initials are submitted -->
         <section id="score-section" class="section-item">
             <table class="score-table" id="new-user">
-                <tr>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-                <tr >
-                    <td>SM</td>
-                    <td>10</td>
-                </tr>
             </table>
-            <button>Retake quiz</button>
+            <button id="retake">Retake quiz</button>
         </section>
     </main>
-    <!-- <footer>
-        <p>SM</p>
-    </footer> -->
-
-
-
-
-
-
-
-
-
     <script src="./assets/script.js"></script>
 </body>
 
